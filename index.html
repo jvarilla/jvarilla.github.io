@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./public/style.css"></link>
+    <link rel="stylesheet" href="./style.css"></link>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!--Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -102,43 +102,7 @@
 <div id="skills" class="w3-container w3-light-grey w3-padding-64" data-aos="flip-right"> 
   <h1>Skills</h1>
   <div class="w3-content">
-    
-    <div class="skillsPool">
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>JavaScript</h3>
-      </div>
-       <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>HTML</h3>
-      </div>
-       <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>CSS</h3>
-      </div>
-       <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>Java</h3>
-      </div>
-       <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>SQL</h3>
-      </div>
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>ReactJS</h3>
-      </div>
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>jQuery</h3>
-      </div>
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>Node.js</h3>
-      </div>
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>Command Line</h3>
-      </div>
-      <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>GitHub</h3>
-      </div>
-     
-<!--       <div class="w3-card w3-center w3-padding-32 w3-hover-opacity w3-hover-black skillCard" data-aos="flip-left">
-        <h3>Command Line</h3>
-      </div> -->
-    </div>
+    <div class="skillsPool" id="skillsPool"></div>
   </div>
 </div>
 
@@ -338,6 +302,8 @@ function toggleAccordianMenu() {
   src="https://code.jquery.com/jquery-3.3.1.slim.js"
   integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
   crossorigin="anonymous"></script>
-<script src="./public/ui.js"></script>
+
+<script src="./bundlesite.js"></script>
+<!-- <script src="./ui.js"></script> -->
 </body>
 </html>

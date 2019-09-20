@@ -1,0 +1,113 @@
+[
+    {
+		"skillName": "Javascript",
+		"skillParent": "none",
+		"skillClass": "frontend"
+    },
+    {
+		"skillName": "HTML",
+		"skillParent": "none",
+		"skillClass": "frontend"
+    },
+    {
+		"skillName": "CSS",
+		"skillParent": "none",
+		"skillClass": "frontend"
+    },
+    {
+		"skillName": "jQuery",
+		"skillParent": "Javascript",
+		"skillClass": "frontend"
+    },
+    {
+		"skillName": "ReactJS",
+		"skillParent": "Javascript",
+		"skillClass": "frontend"
+    },
+    {
+		"skillName": "Scrum Agile",
+		"skillParent": "none",
+		"skillClass": "other"
+    },
+    {
+		"skillName": "Java",
+		"skillParent": "none",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Kotlin",
+		"skillParent": "none",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Node.js",
+		"skillParent": "Javascript",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Express.js",
+		"skillParent": "Javascript",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Vert.x",
+		"skillParent": "Kotlin",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Android",
+		"skillParent": "Java",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "SQL",
+		"skillParent": "none",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "PostgreSQL",
+		"skillParent": "SQL",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "SQLite",
+		"skillParent": "SQL",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "MongoDB",
+		"skillParent": "none",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Git",
+		"skillParent": "none",
+		"skillClass": "tools"
+    },
+    {
+		"skillName": "Linux",
+		"skillParent": "none",
+		"skillClass": "tools"
+    },
+    {
+		"skillName": "Command-Line",
+		"skillParent": "none",
+		"skillClass": "tools"
+    },
+    {
+		"skillName": "Kafka",
+		"skillParent": "none",
+		"skillClass": "backend"
+    },
+    {
+		"skillName": "Docker",
+		"skillParent": "none",
+		"skillClass": "devops"
+    },
+    {
+		"skillName": "Kubernetes",
+		"skillParent": "none",
+		"skillClass": "devops"
+	}
+    
+]

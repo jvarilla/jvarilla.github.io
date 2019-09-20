@@ -1,7 +1,98 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+class SkillCard {
+	
+	constructor(skillObj) {
+		this.skillCardClassList = 
+		["w3-card", "w3-center", "w3-padding-32", "w3-hover-opacity",
+		"w3-hover-black", "skillCard"];
+
+		this.parentSkill = skillObj.parentSkill || "none";
+		this.skillClass = skillObj.skillClass || "other";
+		this.skillName = skillObj.skillName || "???";
+
+		
+	}
+
+	getHTMLElement() {
+		// Create Element
+		let skillCardElement = document.createElement("div");
+
+		// Add the class information
+		this.skillCardClassList.forEach( skillCardClass => {
+			skillCardElement.classList.add(skillCardClass);
+		});
+		
+		// Add aos flip animation
+		skillCardElement.setAttribute("data-aos", "flip-left" );
+		
+		// Add attribute for parent skill
+		skillCardElement.setAttribute("data-parentskill", this.parentSkill);
+
+
+		// Add attribute that identifies the skill classification
+		skillCardElement.setAttribute("data-skillclass", this.skillclass);
+
+		// append the actual data
+		let skillName = document.createElement("h3");
+		skillName.textContent = this.skillName;
+		skillCardElement.append(skillName);
+		
+		return skillCardElement;
+	}
+
+
+}
+
+module.exports = SkillCard;
+},{}],2:[function(require,module,exports){
+const SkillCard = require('./SkillCard.js');
+let skills = fetch("./skills.json")
+  .then(response => response.json())
+  .then(json => {
+	loadSkillsCards(json)
+	console.log(json);
+  });
+		
+console.log(skills);
+// skills = JSON.parse(skills)
+// skills = [
+// 	{
+// 		skillName: "Name",
+// 		skillParent: "Parent",
+// 		skillClass: "Class"
+// 	},
+// 	{
+// 		skillName: "Name",
+// 		skillParent: "Parent",
+// 		skillClass: "Class"
+// 	},
+// 	{
+// 		skillName: "Name",
+// 		skillParent: "Parent",
+// 		skillClass: "Class"
+// 	},
+// 	{
+// 		skillName: "Name",
+// 		skillParent: "Parent",
+// 		skillClass: "Class"
+// 	}
+// ]
+
+let loadSkillsCards = (skillsArr) => {
+	let skillCardContainer = document.getElementById("skillsPool");
+	skillsArr.forEach(skillObj => {
+		let newSkillCard = new SkillCard(skillObj);
+		skillCardContainer.append(newSkillCard.getHTMLElement());
+	})
+}
+
+	
+
 AOS.init({
   duration: 1200,
   once: true,
 });
+
 
 
 //---Code for CV Tab Functionality------------------------------------------------
@@ -218,3 +309,4 @@ AOS.init({
 // 		console.log($(this).children());
 // 	})
 // })
+},{"./SkillCard.js":1}]},{},[2]);
