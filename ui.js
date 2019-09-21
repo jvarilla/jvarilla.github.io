@@ -1,35 +1,20 @@
 const SkillCard = require('./SkillCard.js');
-let skills = fetch("./skills.json")
+const ProjectTile = require('./ProjectTile');
+
+fetch("./skills.json")
   .then(response => response.json())
   .then(json => {
 	loadSkillsCards(json)
 	console.log(json);
   });
-		
-console.log(skills);
-// skills = JSON.parse(skills)
-// skills = [
-// 	{
-// 		skillName: "Name",
-// 		skillParent: "Parent",
-// 		skillClass: "Class"
-// 	},
-// 	{
-// 		skillName: "Name",
-// 		skillParent: "Parent",
-// 		skillClass: "Class"
-// 	},
-// 	{
-// 		skillName: "Name",
-// 		skillParent: "Parent",
-// 		skillClass: "Class"
-// 	},
-// 	{
-// 		skillName: "Name",
-// 		skillParent: "Parent",
-// 		skillClass: "Class"
-// 	}
-// ]
+
+fetch("./projects.json")
+	.then(response => response.json())
+	.then(json => {
+		loadProjectTiles(json)
+		console.log(json)
+	});
+
 
 let loadSkillsCards = (skillsArr) => {
 	let skillCardContainer = document.getElementById("skillsPool");
@@ -39,7 +24,6 @@ let loadSkillsCards = (skillsArr) => {
 	})
 }
 
-	
 
 AOS.init({
   duration: 1200,
@@ -95,6 +79,8 @@ AOS.init({
 
 	let focusedCard = null;
 	function focusOnProjectSlide(event, elemId) {
+		console.log("event", event);
+		console.log("elemId", elemId);
 		const targetCard = document.getElementById(elemId);
 		const top = $('div#projects').position().top;
 		$(window).scrollTop( top );
@@ -111,154 +97,54 @@ AOS.init({
 		targetCard.classList.toggle('projectCardFocused');
 	}
 
-	const projectCardDataSet = {
-		"mcyaf-project-card": {
-			title: "MCYAF Site Renovation",
-			description: 
-				"Volunteer with the Maine Community Youth Assistance Foundation to create a new content management system website and to train them on data entry and maintenance.",
-			date: "2017",
-			status: "Live- Standby Maintenance",
-			link: "http://www.mcyaf.com",
-			stack: ["HTML", "CSS"],
-			skills: ["Consulting", "Content Managment Systems", "User Training", "Web Design"],
-		},
-		"facedetection-project-card": {
-			title: "Facial Detection App",
-			description: "A full-stack web application that makes use of Clarifai's facial detection API deployed onto Heroku.",
-			date: "2018",
-			status: "Live",
-			link: "https://jvarilla-facebrain-client.herokuapp.com",
-			stack: ["JavaScript", "HTML", "CSS", "Node.js", "ReactJS", "PostgreSQL"],
-			skills: ["Full-stack Development", "Deployment"],
-		},
-		"owe-knowe-project-card": {
-			title: "Owe Knowe",
-			description: "A web application that allows you to keep track of how much you owe and how much you are owed, complete with interest calculations.",
-			date: "2018",
-			status: "In Development",
-			link: "http://studentweb.cdm.depaul.edu/~jvarilla/IT238/oweKnowe/index.html",
-			stack: ["jQuery", "jQuery UI", "JavaScript", "HTML", "CSS"],
-			skills: [],
-		},
-		"advanced-minecraft-project-card": {
-			title: "Advanced Minecraft Mods",
-			description: "Minecraft Mods made to work on CodeKingdom's platform for Minecraft, used to teach object-oriented programming to K-12 students.",
-			date: "2018",
-			status: "Ongoing",
-			link: "https://www.github.com/jvarilla/minecraftAdvanced",
-			stack: ["Java"],
-			skills: ["Teaching", "OOP"],
-		},
-		"alien-ruins-project-card": {
-			title: "Alien Ruins",
-			description: "Created the UI and sprites for a variant of ruinscape that involves uncovering ancient alien structures",
-			date: "2018",
-			status: "Live",
-			link: "http://studentweb.cdm.depaul.edu/~jvarilla/IT238/game/game.html",
-			stack: ["jQuery", "JavaScript", "HTML", "CSS"],
-			skills: ["UI Design"],
-		},
-		"coming-soon-project-card": {
-			title: "Coming Soon",
-			description: "???",
-			date: "Future",
-			status: "",
-			link: "",
-			stack: [],
-			skills: [],
-		},
-	}
+
 
 	const projectDataCard = document.getElementById("dynamic-project-data-card");
-	const projectDataCardJ = $("#dynamic-project-data-card");
+	let projectTiles = {}
 	function loadProjectData(elemId) {
 		projectDataCard.classList.remove("projectDataCardInactive");
-		const dataSet = projectCardDataSet[elemId];
-		projectDataCardJ.empty();
-		projectDataCardJ.append(`
-			${constructDataCardData(dataSet)}`);
+		projectDataCard.innerHTML = ''
+		projectDataCard.append(projectTiles[elemId].getExpandedTileHTMLElement());
+		console.log(projectTiles[elemId].getExpandedTileHTMLElement())
+		
+		
 		projectDataCard.classList.add("projectDataCardActive");
-		// document.getElementById("dynamic-project-title").appendChild(document.createTextNode(dataSet.title));
 	}
 
-	function constructDataCardData(dataSet) {
-		let elemString = `<div>`;
-
-		//Add Title
-		elemString += `<h2>${dataSet.title}</h2>`;
-
-		//Add Date and Status
-		elemString += `<h6>Date: ${dataSet.date} | Status: <span class='status ${dataSet.status}-status'>${dataSet.status} </span></h6>`;
-		
-		//Add Description
-		elemString += `<p>${dataSet.description}</p>`;
-
-
-		//Add Tech Stack
-		if (dataSet.stack.length > 0) {
-			elemString += `<h6>Technologies:`;
-
-			dataSet.stack.forEach((item) => {
-				elemString += `<div class='tech-skill-tag'>${item}</div>`;
-			});
-
-			elemString += `</h6>`;
-		}
-		
-
-		//Add other Skill list
-		if (dataSet.skills.length > 0) {
-			elemString += `<h6>Skills: <spanclass='other-skill-space'>`;
-			for (let skillIdx=0; skillIdx <dataSet.skills.length; skillIdx++) {
-				if (skillIdx === dataSet.skills.length - 1) {//no trailing comma
-					elemString += `${dataSet.skills[skillIdx]}`
-				} else {
-					elemString += `${dataSet.skills[skillIdx]}, `;
-				}	
-			}	
-			elemString += `</span></h6>`
-		}
-		elemString += `<br/>`;
-		
-		//Add link To button
-		if (dataSet.link.length > 0) {
-			elemString += `<h4><a href=${dataSet.link}><button class='w3-button w3-text-white w3-black w3-hover-text-black w3-hover-white'>Check it out</button></a></h4>`
-		}
-
-		//close and return element
-		elemString += `<br/></div>`
-
-		return elemString;
-	}
 
 	function hideProjectData() {
-		projectDataCardJ.empty();
+		projectDataCard.innerHTML = ''
 		projectDataCard.classList.remove("projectDataCardActive");
 		projectDataCard.classList.add("projectDataCardInactive");
 	}
 
-	// $(() => {
-	// 	$(".projectCard").on('click', () => {
-	// 		console.log(this);
-	// 		this.classList.add('projectCardFocused');
-	// 	})
-	// })
+	
+	let loadProjectTiles = (projectsObj) => {
+		let projectTileContainer = document.getElementById("projectTileContainer");
+		console.table(projectsObj)
+		for (let projectKey in projectsObj) {
+			let newProjectTile = new ProjectTile(projectKey, projectsObj[projectKey], focusOnProjectSlide);
+			projectTiles[`${projectKey}-project-card`] = newProjectTile
+			let newProjectTileElement = newProjectTile.getHTMLTileElement();
+			newProjectTileElement.addEventListener('click', function(event) {
+				focusOnProjectSlide(event, `${projectKey}-project-card`)
+			})
+			projectTileContainer.append(newProjectTileElement)
+		}
+	}
 
-	// function revealCaption2() {
-	// 	$(this).children(".project-caption-container").css('display', 'block');
-	// 	// console.log(captionBlock[0]);
-	// }
+	// "owe-knowe": {
+	// 	"title": "Owe Knowe",
+	// 	"description": "A web application that allows you to keep track of how much you owe and how much you are owed, complete with interest calculations.",
+	// 	"date": "2018",
+	// 	"status": "In Development",
+	// 	"link": "http://studentweb.cdm.depaul.edu/~jvarilla/IT238/oweKnowe/index.html",
+	// 	"imageSrc": "../assets/oweKnowe.PNG",
+	// 	"stack": ["jQuery", "jQuery UI", "JavaScript", "HTML", "CSS"],
+	// 	"skills": []
+	// },
 
 
 
 
 
-// $(() => {
-// 	//Program For CV Tab Component
-// 	$("#mcyaf-project-card").on('mouseover', (elem) => {
-// 		$(this).find(".project-caption-container").css('display', 'block');
-// 		console.log($(this));
-// 		console.log('hi');
-// 		console.log($(this).children());
-// 	})
-// })
