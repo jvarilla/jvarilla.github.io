@@ -245,8 +245,7 @@ AOS.init({
 		console.log("event", event);
 		console.log("elemId", elemId);
 		const targetCard = document.getElementById(elemId);
-		const top = $('div#projects').position().top;
-		$(window).scrollTop( top );
+		document.querySelector('div#projects').scrollIntoView();
 		if (targetCard !== focusedCard) {
 			if (focusedCard) {
 				focusedCard.classList.remove('projectCardFocused');
