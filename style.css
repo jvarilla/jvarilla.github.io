@@ -2,6 +2,24 @@ html {
   /*scroll-behavior: smooth;*/
 }
 
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  display: block;
+    
+  /* overflow-y: scroll; */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.container div {
+  /* box-shadow: 5px 10px #888888; */
+  scroll-snap-align: start;
+}
+.container::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
 /*body {
 width: 100%;
 background-color: #cccccc;

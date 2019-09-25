@@ -1,10 +1,6 @@
 class ProjectTile {
 	
-	constructor(projectName, projectInfoObj, projectTileFocusFunction) {
-		// this.skillCardClassList = 
-		// ["w3-card", "w3-center", "w3-padding-32", "w3-hover-opacity",
-		// "w3-hover-black", "skillCard"];
-
+	constructor(projectName, projectInfoObj) {
 		this.projectTileClassList = 
 		["projectCard","w3-card","w3-center","w3-padding-32"];
 
@@ -14,7 +10,6 @@ class ProjectTile {
 
 		this.projectInfoObj = projectInfoObj;
 		this.projectName = projectName;
-		this.projectTileFocusFunction = projectTileFocusFunction;
 		
 	}
 

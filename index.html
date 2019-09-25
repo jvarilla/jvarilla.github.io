@@ -65,7 +65,7 @@
 
 <!-- Header Jumbotron-->
 <header id="jumbotronSplash" class="w3-container w3-cyan w3-center" style="padding:128px 16px;">
-  <h1 id="splashHeader" class="w3-margin w3-jumbo">JOSEPH VARILLA</h1>
+  <h1 id="splashHeader" class="w3-margin w3-jumbo">Joseph Varilla</h1>
   <p class="w3-xlarge">Developer | Student | Instructor </p>
   <a href='mailto:jvarilla@gmail.com'><button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get In Touch&nbsp;&nbsp; <i class='fa fa-envelope'></i></button></a>
 </header>
@@ -79,13 +79,23 @@
   <div class="w3-content">
     <div class="w3-twothird">
       
-      <h5 class="w3-padding-32">
+      <h5>
       Hi there! I'm Joseph, full-time student,
-      part-time instructor, and night-time coder. I program during the day too.</h5> 
+      part-time instructor, and night-time coder.</h5> 
+      <h6>I program during the day too! ( but I that was some good use of parallelism :) ).</h6>
       <p class="w3-text-grey">Ever since I was introduced to programming at
       a young age, I fell in love with it. Initially, I started off creating
-      graphics, then animations, then games, and now web applications. I enjoy the challenge of solving difficult problems, but more importantly, I like finding how to use technology to help people. I'm always learning new things (especially reading Medium articles that pop-up in my email) and sharing what I know so far through my work as an instructor. </p>
-      <p class="w3-text-grey">In the realm of programming, my interests are in full-stack development: front-end, back-end, and databases. I primarily use JavaScript and Java and have a number of projects that use JS libraries and frameworks. I am trying to learn more about progressive web apps (PWAs). Currently, I am involved in a project to create digital badges which are a combination of json files and images. </p>
+      graphics, then animations, then games, and now web applications. 
+      I enjoy the challenge of solving difficult problems, but more importantly, 
+      I like finding how to use technology to help people. 
+      I'm always learning new things (especially reading Medium articles that pop-up in my email) 
+      and sharing what I know so far through my work as an instructor. </p>
+      <p class="w3-text-grey">
+      I have experience programming on all levels of the web-development stack. I have created the 
+      <a target="_blank" href="https://docs.google.com/presentation/d/1jN98xijEmq9lxGecQ80xlnC4YiTRnE4ZRUJ02PdXumA/edit#slide=id.g5b1bb9271e_0_1"
+      >Chicago Public Schools Sports Digital Badge System</a>, 
+      developed core pieces of an Asset Management Platform for large construction companies,
+      and have taught dozens of classes of K-12 students how to code.  </p>
     </div>
     <!-- About Image -->
     <div class="w3-third w3-center">
@@ -129,15 +139,14 @@
   <h1>Resume</h1>
   <div class="w3-content">
       <div><!-- class="w3-twothird" -->
-        
         <div class="w3-container w3-bar">
-          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="background_cv_tab" value="background" onclick="loadTab(event,'background')">Background</span>
-          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="education_cv_tab" value="education"  onclick="loadTab(event,'education')">Education</span>
-          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="experience_cv_tab" value="experience" onclick="loadTab(event,'experience')">Experience</span>
-          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="skills_cv_tab" value="skills" onclick="loadTab(event,'skills')">Skills</span>
-          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="awards_cv_tab" value="honors" onclick="loadTab(event,'honors')">Honors</span>
+          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="background_cv_tab" value="background">Background</span>
+          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="education_cv_tab" value="education">Education</span>
+          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="experience_cv_tab" value="experience">Experience</span>
+          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="skills_cv_tab" value="skills">Skills</span>
+          <span class="w3-bar-item cv-tab-item w3-hover-text-white w3-hover-dark-grey" id="awards_cv_tab" value="honors">Honors</span>
         </div>
-        <div id="cv_container" class="w3-container w3-white w3-padding-64 w3-large" style="min-height: 500px; max-height: 500px; overflow: scroll;padding-top:0;">
+        <div id="cv_container" class="w3-container w3-white w3-padding-64 w3-large container" style="min-height: 500px; max-height: 500px; overflow: scroll;padding-top:0;" class="container">
           <div class="cvSection" id="cv_background" data-aom="fade-right">
             <h2>Background</h2>
             <p>An articulate self-starter who is passionate about technology, teaching, and innovation. I have a working  knowledge of various web technologies and over a year of experience as a K-12 educator in programming. I am currently seeking a summer internship opportunity and/or freelance work in full-stack development.</p>
@@ -202,6 +211,12 @@
           </div>
       </div>
   </div>
+  <!-- <div id="slideContainer" class="container" style="height:600px;width:1000px;overflow-y:scroll;">
+        <div class="w3-card" style="height:600px;width:1000px;background-color:aqua;"></div>
+        <div class="w3-card" style="height:600px;width:1000px;background-color:red;"></div>
+        <div class="w3-card" style="height:600px;width:1000px;background-color:green;"></div>
+    <!-- </div> -->
+  </div>
 </div>
 </div>
 
@@ -223,7 +238,7 @@
 </footer>
 
 <div class="w3-container w3-black w3-text-white">
-  This website was made using the <a href="https://www.w3schools.com/w3css/">W3.CSS</a> responsive framework, <a href="https://jquery.com/">jQuery</a>, and the 
+  This website was made using the <a href="https://www.w3schools.com/w3css/">W3.CSS</a> responsive framework 
     <a href="https://github.com/michalsnik/aos">AOS</a> (Animate on Scroll) library.</p>
     <p>All images on this site, other than those I took myself, are free for commercial use courtesy of Pixabay.</p>
 </div>
@@ -238,10 +253,6 @@ function toggleAccordianMenu() {
     }
 }
 </script>
-<!-- <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.js"
-  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-  crossorigin="anonymous"></script> -->
 
 <script src="./bundlesite.js"></script>
 <!-- <script src="./ui.js"></script> -->

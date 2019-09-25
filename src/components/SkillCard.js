@@ -29,8 +29,8 @@ class SkillCard {
 
 
 		// Add attribute that identifies the skill classification
-		skillCardElement.setAttribute("data-skillclass", this.skillclass);
-
+		skillCardElement.setAttribute("data-skillclass", this.skillClass);
+		skillCardElement.id = `${this.skillName}-skill-card`
 		// append the actual data
 		let skillName = document.createElement("h3");
 		skillName.textContent = this.skillName;

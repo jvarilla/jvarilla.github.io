@@ -1,4 +1,37 @@
 {
+		"cpsbadges": {
+			"title": "Chicago Public Schools Sports Badges",
+			"description": 
+				"Created a custom web application for awarding and viewing custom digital sports awards and certificates, using agile methodology. See the presentation <a target='_blank' href='https://docs.google.com/presentation/d/1jN98xijEmq9lxGecQ80xlnC4YiTRnE4ZRUJ02PdXumA/edit?usp=sharing'>here</a>.",
+			"date": "2019",
+			"status": "Project Completed",
+			"link": "https://github.com/cpssportsbadges/cpssportsbadges.github.io",
+			"imageSrc": "../assets/cpsCertificate.PNG",
+			"stack": ["JS", "HTML5 Canvas", "HTML", "CSS"],
+			"skills": ["Scrum Agile", "CSV Processing", "User Training", "Web Design"]
+		},
+		"fileaccessradio": {
+			"title": "Remote File Access Over Radio",
+			"description": 
+				"Created a program to access files on a remote (but within range) device over radio, using Node.js, MicroBit, and Serial Communication.",
+			"date": "2019",
+			"status": "Functional (Seeking to Expand)",
+			"link": "https://github.com/jvarilla/microbit-radio-node-web-server",
+			"imageSrc": "../assets/radioClientServer.PNG",
+			"stack": ["JS", "Node.js", "MicroBit"],
+			"skills": ["IoT", "Serial"]
+		},
+		"knowe": {
+			"title": "Knowe: Loan Tracking Application",
+			"description": 
+				"An Android Application for keeping track of loans.",
+			"date": "2019",
+			"status": "Functional (Seeking to Expand)",
+			"link": "https://github.com/jvarilla/knoweAndroid",
+			"imageSrc": "../assets/loanApp.PNG",
+			"stack": ["Java", "Android", "SQLite"],
+			"skills": ["Mobile Application Development"]
+		},
 		"mcyaf": {
 			"title": "MCYAF Site Renovation",
 			"description": 
