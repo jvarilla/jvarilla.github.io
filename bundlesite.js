@@ -163,14 +163,12 @@ fetch("./skills.json")
   .then(response => response.json())
   .then(json => {
 	loadSkillsCards(json)
-	console.log(json);
   });
 
 fetch("./projects.json")
 	.then(response => response.json())
 	.then(json => {
 		loadProjectTiles(json)
-		console.log(json)
 	});
 
 
@@ -201,7 +199,6 @@ let metaTypeWriter = (txt, speed, element) => {
 }
 
 let splashHeaderNameElement = document.getElementById("splashHeader");
-console.log(splashHeaderNameElement);
 // splashHeaderNameElement.addEventListener('click', function(event) {
 // 	console.log("hi")
 // 	metaTypeWriter("Hi There :)!############My Name Is##########Joseph Varilla", 40, splashHeaderNameElement)
@@ -223,7 +220,7 @@ AOS.init({
 			background: cv_background,
 			education: cv_education,
 			experience: cv_experience,
-			skills: cv_skills,
+			// skills: cv_skills,
 			honors: cv_honors
 		};
 	
@@ -250,7 +247,7 @@ AOS.init({
 	let backgroundTab = document.getElementById("background_cv_tab");
 	let educationTab = document.getElementById("education_cv_tab");
 	let experienceTab = document.getElementById("experience_cv_tab");
-	let skillsTab = document.getElementById("skills_cv_tab");
+	// let skillsTab = document.getElementById("skills_cv_tab");
 	let awardsTab = document.getElementById("awards_cv_tab");
 
 	backgroundTab.addEventListener('click', function(event) {
@@ -265,16 +262,16 @@ AOS.init({
 		loadTab(event, 'experience');
 	});
 
-	skillsTab.addEventListener('click', function(event) {
-		loadTab(event, 'skills');
-	});
+	// skillsTab.addEventListener('click', function(event) {
+	// 	loadTab(event, 'skills');
+	// });
 
 	awardsTab.addEventListener('click', function(event) {
 		loadTab(event, 'honors');
 	});
 
 	let cvTabIdx = 0;
-	let cvTabs = [backgroundTab, educationTab, experienceTab, skillsTab, awardsTab];
+	let cvTabs = [backgroundTab, educationTab, experienceTab, awardsTab];
 
 	let advanceTabToRight = () => {
 		cvTabIdx++;
@@ -291,7 +288,10 @@ AOS.init({
 
 	let cvTabContainer = document.getElementById("cv");
 	document.addEventListener("keydown", function(event) {
-		console.log("triggered", event.keyCode);
+		//Remove Selected Classes From Tab (Removes Highlighting)
+		selectedItemTab.classList.remove("w3-dark-grey");
+		selectedItemTab.classList.remove("w3-text-white");
+
 		switch(event.keyCode) {
 			// Right key press move tab one to right
 			case 39: {
@@ -309,10 +309,9 @@ AOS.init({
 //---Code For Project Slides------------------------------------------------------------
 function noScroll(event) {
 	let pageY = event.pageY;
-	console.log(pageY)
+
 	if (pageY !== undefined) {
 		window.scrollTo(0, event.pageY);
-		console.log("scroll to", event.pageY);
 	}
 	
   }
@@ -334,10 +333,6 @@ function noScroll(event) {
 //   })
 
 function revealCaption(event) {
-		console.log(event.target);
-		console.log('children', event.target.childNodes);
-		console.log(event.target.childNodes[4]);
-
 		let captionBlock = event.target.childNodes.filter((child) => {
 			child.classList.contains("project-caption-container");
 		});
@@ -345,8 +340,6 @@ function revealCaption(event) {
 
 	let focusedCard = null;
 	function focusOnProjectSlide(event, elemId) {
-		console.log("event", event);
-		console.log("elemId", elemId);
 		const targetCard = document.getElementById(elemId);
 		document.querySelector('div#projects').scrollIntoView();
 		if (targetCard !== focusedCard) {
@@ -370,7 +363,7 @@ function revealCaption(event) {
 		projectDataCard.classList.remove("projectDataCardInactive");
 		projectDataCard.innerHTML = ''
 		projectDataCard.append(projectTiles[elemId].getExpandedTileHTMLElement());
-		console.log(projectTiles[elemId].getExpandedTileHTMLElement())
+	
 		
 		
 		projectDataCard.classList.add("projectDataCardActive");
@@ -386,7 +379,6 @@ function revealCaption(event) {
 	
 	let loadProjectTiles = (projectsObj) => {
 		let projectTileContainer = document.getElementById("projectTileContainer");
-		console.table(projectsObj)
 		for (let projectKey in projectsObj) {
 			let newProjectTile = new ProjectTile(projectKey, projectsObj[projectKey]);
 			projectTiles[`${projectKey}-project-card`] = newProjectTile
