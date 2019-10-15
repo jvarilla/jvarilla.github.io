@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Import the Chart.js library from the Content Delivery Network -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">
+	</script>
+</head>
+	<body>
+		<h2> Causes of Death By Season </h2>
+		<p> This data is fake </p>
+		<!-- The Canvas the chart gets drawn on -->
+		<canvas id="myChart"></canvas>
+
+		<script>
+			// Create the context for the canvas
+			var ctx = document.getElementById('myChart').getContext('2d');
+
+			// Define colors
+			const PURPLE = '#993399';
+			const TEAL = '#00e6e6';
+			const ORANGE = '#ff9900';
+
+			// Define the data
+			let data = {
+				label: 'Causes of Death',
+			    datasets: [
+			    {
+			    	label: 'By Wounds',
+			    	backgroundColor: PURPLE,
+			        data: [5, 5, 7, 10]
+			    }, {
+			    	label: 'Other Cause',
+			    	backgroundColor: ORANGE,
+			        data: [20, 40, 35, 40]
+			    },
+			    {
+			    	label: 'By Treatable Disease',
+			    	backgroundColor: TEAL,
+			        data: [80, 70, 70, 100]
+			    }],
+
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: [
+			        'Winter',
+			        'Spring',
+			        'Summer',
+			        'Fall'
+			    ]
+			};
+
+			// Define the chart
+			let chart = new Chart(ctx, {
+    			data: data,
+   				type: 'polarArea',
+   				options: {}
+			});
+
+
+		</script>
+	</body>
+</html>
